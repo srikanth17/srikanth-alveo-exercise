@@ -1,3 +1,40 @@
+## Application
+
+This application is built on ES6 JavaScript using React with Redux and TypeScript. I've used Create React App (saves more time in configuring the dev environment) to bootstrap this react application. Information about the _create-react-app_ & to run this application is mentioned in the later part of this document.
+
+I've used _concurrently_, npm library to run both client and server in single localhost. This is configured in package.json file. _json-server_ will be running in port 4000.
+
+Client - Port #3000
+
+Server - Port #4000
+
+## Backend
+
+The Backend is built on NodeJS. I've used websockets to send periodic log data (every second) to the client without making further API calls. Used _socket.io_ to configure on the backend & used _socket.io-client_ npm library to establish the connection & consume the data from the backend.
+
+## Directory Structure
+
+All the TS code live in _/src/_ directory. _index.tsx_ is the entry point for the application, all other files are imported when they are necessary. I've added components & other files to their respective sub-directories. This allows us to manage the code easily.
+
+## Redux Store
+
+This application requires information exchange between components. Redux is used to solve this. I don't want to populate _props_ by sending all the information through it. Also, by using redux store the code is clean & reusable.
+
+Redux store is configured in _/src/store/index.ts_ & imported into '_/index.tsx_'.
+
+## Reducers
+
+1. Logs - Stores the log informations
+
+## Components
+
+1. App - Root application & websockets are configured over here.
+2. Logs - Renders the Logs to the screen. Used [react-virtualized](https://www.npmjs.com/package/react-virtualized) to improve the performance of the application.
+
+## UI
+
+I've used material UI as a framework to build the application.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -28,19 +65,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
